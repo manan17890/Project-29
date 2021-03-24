@@ -13,14 +13,8 @@ class SlingShot{
     }
 
     fly(){
-        this.sling.bodyA = nul;
+        this.sling.bodyA = null;
     }
-
-    attacher(bodyA)
-    {
-        this.sling.bodyA=bodyA;
-    }
-
     display(){
         
         if(this.sling.bodyA ){
