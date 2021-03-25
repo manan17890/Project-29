@@ -55,7 +55,7 @@ function setup() {
   block25 = new Block(700,70,30,40);
   
   ball = new Polygon(160 , 200 , 20);
-  //sling = new SlingShot(this.bodyA , {x: 170 , y: 440})
+  slingshot = new SlingShot(this.bodyA , {x: 170 , y: 440})
 
   
   Engine.run(engine);
@@ -70,7 +70,7 @@ function draw() {
   stand1.display();
   stand2.display();
   ball.display();
-  //sling.display();
+  slingshot.display();
 
   strokeWeight(2);
   stroke(15);
@@ -112,7 +112,7 @@ function mouseDragged(){
   Matter.Body.setPosition(ball.body,{x:mouseX, y:mouseY});
 }
 function mouseReleased(){
-  sling.fly();
+  slingshot.fly();
 }
 function keyPressed(){
 if(keyCode === 32){
