@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var ball,ground;
 var stand1,stand2;
-var slingShot;
+var slingShot ,slingshot , sling;
 var polygon_img ;
 function preload(){
   polygon_img=loadImage("polygon.png");
@@ -117,7 +117,6 @@ function mouseReleased(){
 function keyPressed(){
 if(keyCode === 32){
   Matter.Body.setPosition(ball.body,{x:100, y:200});
-  sling.attach(ball.body);
 }
 
 }
