@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var ball,ground;
 var stand1,stand2;
-var slingShot ,slingshot , sling;
+var slingshot , sling;
 var polygon_img ;
 function preload(){
   polygon_img=loadImage("polygon.png");
@@ -54,10 +54,10 @@ function setup() {
   //top
   block25 = new Block(700,70,30,40);
   
-  ball = new Polygon(160 , 200 , 20);
-  slingshot = new SlingShot(this.bodyA , {x: 170 , y: 440})
+  ball = Bodies.circle(160 , 200 , 20);
+  World.add(world , ball);
+  slingshot = new SlingShot(this.ball , {x: 170 , y: 140})
 
-  
   Engine.run(engine);
 }
 function draw() {
@@ -69,8 +69,6 @@ function draw() {
   ground.display();
   stand1.display();
   stand2.display();
-  ball.display();
-  slingshot.display();
 
   strokeWeight(2);
   stroke(15);
@@ -106,17 +104,15 @@ function draw() {
   block24.display();
   fill("turquoise");
   block25.display();
+  fill("black");
+  imageMode(CENTER);
+  image(polygon_img , ball.position.x , ball.position.y , 40 , 40  )  
+  slingshot.display();
 
 }
 function mouseDragged(){
-  Matter.Body.setPosition(ball.body,{x:mouseX, y:mouseY});
+  Matter.Body.setPosition(this.ball,{x:mouseX, y:mouseY});
 }
 function mouseReleased(){
-  sling.fly();
-}
-function keyPressed(){
-if(keyCode === 32){
-  Matter.Body.setPosition(ball.body,{x:100, y:200});
-}
-
+  slingshot.fly();
 }
